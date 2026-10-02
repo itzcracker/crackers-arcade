@@ -157,8 +157,13 @@
   * {
     @apply border-border outline-ring/50;
   }
-  html {
-    font-family: 'Lufga', 'Avenir Next', 'Helvetica Neue', sans-serif;
+  html,
+  body,
+  button,
+  input,
+  textarea,
+  select {
+    font-family: 'Lufga', 'Avenir Next', 'Helvetica Neue', sans-serif !important;
   }
   body {
     @apply bg-background text-foreground;

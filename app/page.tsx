@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import {
   AppWindow,
   ArrowDownToLine,
@@ -35,6 +35,22 @@ const games = [
     link: 'https://itzcracker.github.io/HowToFishPort/',
     color: '#d8f0e3',
   },
+  {
+    title: 'Clustertruck',
+    category: 'Action',
+    eyebrow: 'New release',
+    description: 'Leap across a runaway convoy in a race against gravity.',
+    image: 'https://i.ibb.co/cdjD4h5/clustertruck.png',
+    link: 'https://itzcracker.github.io/Clustertruck-Port/',
+    color: '#ffe3c7',
+  },
+]
+
+const discoverImages = [
+  'https://i.ibb.co/S7vzGSkW/36s-Na79px-V859f-Fg3-CU7z-Fh-Q34-Th-Nx8z.jpg',
+  'https://i.ibb.co/0pmfbw93/ss-98063a3930a7bb600695486897c323dbcb80ce87-1920x1080.jpg',
+  'https://i.ibb.co/Qv27dm6K/ss-ffe91adf2baa39c441fc6d1ca8905204f64c8afc-1920x1080.jpg',
+  'https://i.ibb.co/DHB0vt2C/ss-8cfd1ad9be3b0ad7108c667e14047b84aaf84109-1920x1080.jpg',
 ]
 
 const navItems = [
@@ -56,6 +72,8 @@ export default function Page() {
   const [loading, setLoading] = useState<string | null>(null)
   const [activeGame, setActiveGame] = useState<(typeof games)[number] | null>(null)
   const [query, setQuery] = useState('')
+  const discoverRef = useRef<HTMLDivElement>(null)
+  const discoverCarouselRef = useRef<HTMLDivElement>(null)
 
   const filteredGames = games.filter((game) => game.title.toLowerCase().includes(query.toLowerCase()))
 
@@ -82,7 +100,7 @@ export default function Page() {
           </div>
           <nav className="space-y-1 text-[13px] font-medium text-[#666a73]" aria-label="Primary navigation">
             {navItems.map(({ label, icon: Icon }, index) => (
-              <button key={label} className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition ${index === 1 ? 'bg-white text-[#191a1e] shadow-[0_1px_3px_rgb(0_0_0/8%)]' : 'hover:bg-white/70'}`}>
+              <button key={label} onClick={() => label === 'Discover' ? discoverRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }) : undefined} className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition ${index === 1 ? 'bg-white text-[#191a1e] shadow-[0_1px_3px_rgb(0_0_0/8%)]' : 'hover:bg-white/70'}`}>
                 <Icon size={16} strokeWidth={1.8} />{label}
               </button>
             ))}
@@ -101,6 +119,10 @@ export default function Page() {
           </header>
 
           <div className="mx-auto max-w-[1120px] pt-10">
+            <section ref={discoverRef} id="discover" className="mb-12 scroll-mt-6">
+              <div className="mb-5 flex items-end justify-between"><div><p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a8f98]">Discover</p><h2 className="text-2xl font-semibold tracking-[-0.045em]">Find your next favorite.</h2></div><button onClick={() => discoverCarouselRef.current?.scrollBy({ left: 460, behavior: 'smooth' })} aria-label="Scroll discover images right" className="grid size-9 place-items-center rounded-full border border-[#dfe2e6] bg-white text-[#17181b] shadow-sm transition hover:bg-[#f0f2f5]"><ChevronRight size={17} /></button></div>
+              <div ref={discoverCarouselRef} className="flex gap-4 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">{discoverImages.map((image, index) => <img key={image} src={image} alt={`Discover game scene ${index + 1}`} className="h-[170px] w-[290px] shrink-0 rounded-2xl object-cover shadow-[0_4px_16px_rgb(0_0_0/8%)] sm:h-[205px] sm:w-[350px]" />)}</div>
+            </section>
             <div className="mb-9 flex items-end justify-between"><div><p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a8f98]">{username ? `Good afternoon, ${username}` : 'Good afternoon'}</p><h1 className="text-[36px] font-semibold tracking-[-0.055em] sm:text-[48px]">Play something <span className="text-[#8c9199]">wonderful.</span></h1></div><button className="hidden items-center gap-1 text-sm font-medium text-[#1274d5] sm:flex">See all <ChevronRight size={15} /></button></div>
             <div className="relative mb-12 overflow-hidden rounded-[22px] bg-[#1c1d20] p-7 text-white shadow-[0_15px_30px_rgb(0_0_0/12%)] sm:p-10"><div className="relative z-10 max-w-[390px]"><p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#aeb4c0]">Game of the day</p><h2 className="mb-3 text-3xl font-semibold tracking-[-0.05em]">A little more play.</h2><p className="mb-6 text-sm leading-6 text-[#b3b7c0]">Fresh worlds, clever puzzles, and good times waiting whenever you are.</p><button onClick={() => installed.includes(games[0].title) ? openGame(games[0]) : getGame(games[0].title)} className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#1b1c1f] transition hover:bg-[#dceaff]">{installed.includes(games[0].title) ? 'Play now' : 'Get Gang Beasts'}</button></div><div className="pointer-events-none absolute -right-8 -top-12 h-[280px] w-[56%] rotate-[-5deg] rounded-[30px] opacity-85 sm:right-5" style={{ backgroundImage: `url(${games[0].image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} /><div className="pointer-events-none absolute -right-20 bottom-[-110px] size-[260px] rounded-full bg-[#7981ff]/25 blur-3xl" /></div>
             <section><div className="mb-5 flex items-center justify-between"><div><h2 className="text-xl font-semibold tracking-[-0.035em]">Continue playing</h2><p className="mt-1 text-sm text-[#858a93]">Pick up where you left off.</p></div><button className="flex items-center gap-1 text-sm font-medium text-[#1274d5]">See all <ChevronRight size={15} /></button></div><div className="grid gap-5 md:grid-cols-2">{filteredGames.map((game) => <GameCard key={game.title} game={game} loading={loading === game.title} installed={installed.includes(game.title)} onGet={() => getGame(game.title)} onPlay={() => openGame(game)} />)}</div></section>
@@ -110,7 +132,7 @@ export default function Page() {
 
       {welcomeOpen && <div className="fixed inset-0 z-50 grid place-items-center bg-black/35 p-5 backdrop-blur-[3px]"><div className="relative w-full max-w-[440px] overflow-hidden rounded-[24px] bg-white p-8 text-center shadow-2xl sm:p-10"><button onClick={() => setWelcomeOpen(false)} aria-label="Close welcome message" className="absolute right-4 top-4 rounded-full p-2 text-[#9a9da3] hover:bg-[#f0f1f3] hover:text-black"><X size={18} /></button><div className="mx-auto mb-6 grid size-16 place-items-center rounded-[20px] bg-[#17181b] text-white shadow-lg"><Gamepad2 size={30} /></div><p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#878c95]">Cracker&apos;s Arcade</p><h2 className="mb-3 text-[30px] font-semibold tracking-[-0.055em]">Welcome to play.</h2><p className="mx-auto mb-8 max-w-[290px] text-sm leading-6 text-[#737780]">A small collection of big adventures, made for curious people.</p><button onClick={() => setWelcomeOpen(false)} className="w-full rounded-xl bg-[#1683ed] py-3 text-sm font-semibold text-white shadow-[0_5px_12px_rgb(22_131_237/25%)] transition hover:bg-[#086ed4]">Continue</button></div></div>}
       {signupOpen && <SignupModal draftUsername={draftUsername} setDraftUsername={setDraftUsername} onClose={() => setSignupOpen(false)} onSubmit={() => { if (draftUsername.trim()) { setUsername(draftUsername.trim()); setSignupOpen(false) } }} />}
-      {activeGame && <div className="fixed inset-0 z-[60] flex flex-col bg-[#111216] text-white"><div className="flex h-16 shrink-0 items-center justify-between border-b border-white/10 px-5 sm:px-8"><div className="flex items-center gap-3"><div className="grid size-8 place-items-center rounded-lg bg-white/10"><Gamepad2 size={16} /></div><span className="font-semibold">{activeGame.title}</span></div><button onClick={() => setActiveGame(null)} className="rounded-full bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20">Exit game</button></div><iframe title={activeGame.title} src={activeGame.link} className="h-[calc(100vh-4rem)] w-full border-0 bg-black" allow="fullscreen; autoplay; gamepad" /></div>}
+      {activeGame && <div className="fixed inset-0 z-[60] flex flex-col bg-[#111216] text-white"><div className="flex h-10 shrink-0 items-center justify-between border-b border-white/10 px-4 sm:px-6"><div className="flex items-center gap-3"><div className="grid size-8 place-items-center rounded-lg bg-white/10"><Gamepad2 size={16} /></div><span className="font-semibold">{activeGame.title}</span></div><button onClick={() => setActiveGame(null)} className="rounded-full bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20">Exit game</button></div><iframe title={activeGame.title} src={activeGame.link} className="h-[calc(100vh-2.5rem)] w-full border-0 bg-black" allow="fullscreen; autoplay; gamepad" /></div>}
     </main>
   )
 }
