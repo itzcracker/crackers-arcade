@@ -4,6 +4,7 @@ import { useRef, useState } from 'react'
 import {
   AppWindow,
   ArrowDownToLine,
+  ChevronLeft,
   ChevronRight,
   Compass,
   Gamepad2,
@@ -43,6 +44,15 @@ const games = [
     image: 'https://i.ibb.co/cdjD4h5/clustertruck.png',
     link: 'https://itzcracker.github.io/Clustertruck-Port/',
     color: '#ffe3c7',
+  },
+  {
+    title: 'PEAK',
+    category: 'Adventure',
+    eyebrow: 'New from Cracker',
+    description: 'Climb higher, move carefully, and chase the summit.',
+    image: 'https://i.ibb.co/zTfYgrVC/Mix-Collage-27-Jun-2025-10-57-AM-7610-1.jpg',
+    link: 'https://itzcracker.github.io/Peak-Port/?cdn=https%3A%2F%2Fcdn.jsdelivr%2Fgh%2Fwasmdotrip%2FPeak-Port%40main',
+    color: '#e5e0ff',
   },
 ]
 
@@ -120,8 +130,8 @@ export default function Page() {
 
           <div className="mx-auto max-w-[1120px] pt-10">
             <section ref={discoverRef} id="discover" className="mb-12 scroll-mt-6">
-              <div className="mb-5 flex items-end justify-between"><div><p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a8f98]">Discover</p><h2 className="text-2xl font-semibold tracking-[-0.045em]">Find your next favorite.</h2></div><button onClick={() => discoverCarouselRef.current?.scrollBy({ left: 460, behavior: 'smooth' })} aria-label="Scroll discover images right" className="grid size-9 place-items-center rounded-full border border-[#dfe2e6] bg-white text-[#17181b] shadow-sm transition hover:bg-[#f0f2f5]"><ChevronRight size={17} /></button></div>
-              <div className="mb-4 flex items-center justify-between rounded-2xl border border-[#e2e4e8] bg-white p-3 shadow-[0_3px_12px_rgb(0_0_0/4%)]"><div className="flex min-w-0 items-center gap-3"><img src={games[2].image} alt="Clustertruck logo" className="size-12 rounded-xl object-cover" /><div className="min-w-0"><p className="truncate text-sm font-semibold">Clustertruck</p><p className="text-xs text-[#858a93]">Action · New release</p></div></div>{installed.includes(games[2].title) ? <button onClick={() => openGame(games[2])} className="rounded-full bg-[#edf5ff] px-4 py-2 text-xs font-bold text-[#1477d4]">Play</button> : <button onClick={() => getGame(games[2].title)} disabled={loading === games[2].title} className="rounded-full bg-[#eef5ff] px-4 py-2 text-xs font-bold text-[#1477d4] disabled:opacity-60">{loading === games[2].title ? '...' : 'Get'}</button>}</div><div ref={discoverCarouselRef} className="flex gap-4 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">{discoverImages.map((image, index) => <img key={image} src={image} alt={`Discover game scene ${index + 1}`} className="h-[170px] w-[290px] shrink-0 rounded-2xl object-cover shadow-[0_4px_16px_rgb(0_0_0/8%)] sm:h-[205px] sm:w-[350px]" />)}</div>
+              <div className="mb-5 flex items-end justify-between"><div><p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a8f98]">Discover</p><h2 className="text-2xl font-semibold tracking-[-0.045em]">Find your next favorite.</h2></div></div>
+              <div className="mb-4 flex items-center justify-between rounded-2xl border border-[#e2e4e8] bg-white p-3 shadow-[0_3px_12px_rgb(0_0_0/4%)]"><div className="flex min-w-0 items-center gap-3"><img src={games[2].image} alt="Clustertruck logo" className="size-12 rounded-xl object-cover" /><div className="min-w-0"><p className="truncate text-sm font-semibold">Clustertruck</p><p className="text-xs text-[#858a93]">Action · New release</p></div></div>{installed.includes(games[2].title) ? <button onClick={() => openGame(games[2])} className="rounded-full bg-[#edf5ff] px-4 py-2 text-xs font-bold text-[#1477d4]">Play</button> : <button onClick={() => getGame(games[2].title)} disabled={loading === games[2].title} className="rounded-full bg-[#eef5ff] px-4 py-2 text-xs font-bold text-[#1477d4] disabled:opacity-60">{loading === games[2].title ? '...' : 'Get'}</button>}</div><div className="group relative"><button onClick={() => discoverCarouselRef.current?.scrollBy({ left: -460, behavior: 'smooth' })} aria-label="Scroll discover images left" className="absolute left-3 top-1/2 z-10 grid size-10 -translate-y-1/2 place-items-center rounded-full border border-white/70 bg-white/95 text-[#17181b] shadow-lg transition hover:scale-105 hover:bg-white"><ChevronLeft size={18} /></button><div ref={discoverCarouselRef} className="flex gap-4 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">{discoverImages.map((image, index) => <img key={image} src={image} alt={`Discover game scene ${index + 1}`} className="h-[170px] w-[290px] shrink-0 rounded-2xl object-cover shadow-[0_4px_16px_rgb(0_0_0/8%)] sm:h-[205px] sm:w-[350px]" />)}</div><button onClick={() => discoverCarouselRef.current?.scrollBy({ left: 460, behavior: 'smooth' })} aria-label="Scroll discover images right" className="absolute right-3 top-1/2 z-10 grid size-10 -translate-y-1/2 place-items-center rounded-full border border-white/70 bg-white/95 text-[#17181b] shadow-lg transition hover:scale-105 hover:bg-white"><ChevronRight size={18} /></button></div>
             </section>
             <div className="mb-9 flex items-end justify-between"><div><p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a8f98]">{username ? `Good afternoon, ${username}` : 'Good afternoon'}</p><h1 className="text-[36px] font-semibold tracking-[-0.055em] sm:text-[48px]">Play something <span className="text-[#8c9199]">wonderful.</span></h1></div><button className="hidden items-center gap-1 text-sm font-medium text-[#1274d5] sm:flex">See all <ChevronRight size={15} /></button></div>
             <div className="relative mb-12 overflow-hidden rounded-[22px] bg-[#1c1d20] p-7 text-white shadow-[0_15px_30px_rgb(0_0_0/12%)] sm:p-10"><div className="relative z-10 max-w-[390px]"><p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#aeb4c0]">Game of the day</p><h2 className="mb-3 text-3xl font-semibold tracking-[-0.05em]">A little more play.</h2><p className="mb-6 text-sm leading-6 text-[#b3b7c0]">Wrestle, tumble, and throw your friends into wonderfully wobbly chaos.</p><button onClick={() => installed.includes(games[0].title) ? openGame(games[0]) : getGame(games[0].title)} className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#1b1c1f] transition hover:bg-[#dceaff]">{installed.includes(games[0].title) ? 'Play now' : 'Get Gang Beasts'}</button></div><div className="pointer-events-none absolute -right-8 -top-12 h-[280px] w-[56%] rotate-[-5deg] rounded-[30px] opacity-85 sm:right-5" style={{ backgroundImage: `url(${games[0].image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} /><div className="pointer-events-none absolute -right-20 bottom-[-110px] size-[260px] rounded-full bg-[#7981ff]/25 blur-3xl" /></div>
