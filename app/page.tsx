@@ -54,6 +54,33 @@ const games = [
     link: 'https://itzcracker.github.io/Peak-Port/?cdn=https%3A%2F%2Fcdn.jsdelivr%2Fgh%2Fwasmdotrip%2FPeak-Port%40main',
     color: '#e5e0ff',
   },
+  {
+    title: 'Grand Theft Auto: Vice City',
+    category: 'Open world',
+    eyebrow: 'New from Cracker',
+    description: 'Take a neon-soaked trip through the streets of Vice City.',
+    image: 'https://i.ibb.co/k6yj7qnn/u-https-wallpapers-com-images-hd-gta-vc-pe36dgr3m99i6c8m.jpg',
+    link: 'https://itzcracker.mooo.com/games/vicecity/index.html',
+    color: '#f6d6c9',
+  },
+  {
+    title: 'Grand Theft Auto III',
+    category: 'Open world',
+    eyebrow: 'New from Cracker',
+    description: 'Explore Liberty City and make your mark on the streets.',
+    image: 'https://i.ibb.co/wNX5YPxh/u-https-www-igrandtheftauto-com-content-images-xl-gta3-logo.webp',
+    link: 'https://itzcracker.github.io/StudyMath3/',
+    color: '#e7e2d2',
+  },
+  {
+    title: 'Minecraft (Eaglercraft)',
+    category: 'Sandbox',
+    eyebrow: 'New from Cracker',
+    description: 'Build, explore, and create your own blocky adventure.',
+    image: 'https://i.ibb.co/V0tCMGRP/u-https-dotesports-com-wp-content-uploads-2023-06-cherry-blossom-grove-in-minecra.png',
+    link: 'https://petergriffiniscool.netlify.app/',
+    color: '#d9eedc',
+  },
 ]
 
 const discoverImages = [
