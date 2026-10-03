@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
@@ -153,6 +154,14 @@
   }
 }
 
+@font-face {
+  font-family: 'Lufga';
+  src: url('/fonts/Lufga-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -163,31 +172,24 @@
   input,
   textarea,
   select {
-    font-family: 'Lufga', 'Avenir Next', 'Helvetica Neue', sans-serif !important;
+    font-family: 'Inter', system-ui, sans-serif;
   }
   body {
     @apply bg-background text-foreground;
     margin: 0;
+    font-synthesis: none;
   }
   button, input {
     font: inherit;
   }
-}
-
-@font-face {
-  font-family: 'Lufga';
-  src: url('https://fonts.cdnfonts.com/s/90216/LufgaRegular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Lufga';
-  src: url('https://fonts.cdnfonts.com/s/90216/LufgaSemiBold.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+  h1,
+  h2,
+  h3,
+  nav,
+  .arcade-logo {
+    font-family: 'Lufga', system-ui, sans-serif;
+    font-weight: 400;
+  }
 }
 
 ::selection {

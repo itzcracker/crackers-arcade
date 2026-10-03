@@ -5,23 +5,23 @@ import './globals.css'
 export const metadata: Metadata = {
   title: "Cracker's Arcade",
   description: 'A small collection of big adventures, made for curious people.',
-  generator: 'v0.app',
+  generator: '',
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
+        url: '',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon-dark-32x32.png',
+        url: '',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/icon.svg',
+        url: '',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '',
   },
 }
 
