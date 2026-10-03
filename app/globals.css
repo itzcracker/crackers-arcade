@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
@@ -156,8 +155,16 @@
 
 @font-face {
   font-family: 'Lufga';
-  src: url('/fonts/Lufga-Regular.woff2') format('woff2');
+  src: url('/fonts/lufga-regular.woff2') format('woff2');
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lufga';
+  src: url('/fonts/lufga-bold.woff2') format('woff2');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -172,7 +179,7 @@
   input,
   textarea,
   select {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Lufga', system-ui, sans-serif;
   }
   body {
     @apply bg-background text-foreground;
@@ -186,8 +193,18 @@
   h2,
   h3,
   nav,
+  button,
   .arcade-logo {
     font-family: 'Lufga', system-ui, sans-serif;
+    font-weight: 700 !important;
+  }
+
+  [class*='font-medium'],
+  [class*='font-semibold'] {
+    font-weight: 700;
+  }
+
+  [class*='font-normal'] {
     font-weight: 400;
   }
 }
