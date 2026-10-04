@@ -81,6 +81,15 @@ const games = [
     link: 'https://petergriffiniscool.netlify.app/',
     color: '#d9eedc',
   },
+  {
+    title: 'Cuphead',
+    category: 'Run and gun',
+    eyebrow: 'New from Cracker',
+    description: 'Take on fast-paced bosses in a hand-drawn cartoon adventure.',
+    image: 'https://i.ibb.co/RTfCCG3J/u-https-gmedia-playstation.jpg',
+    link: 'https://itzcracker.github.io/HTML-web-course/',
+    color: '#f5d6cb',
+  },
 ]
 
 const discoverImages = [
