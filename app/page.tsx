@@ -162,8 +162,12 @@ export default function Page() {
             <span className="arcade-logo text-[15px] tracking-[-0.03em]">Cracker&apos;s Arcade</span>
           </div>
           <nav className="space-y-1 text-[13px] font-medium text-[#666a73]" aria-label="Primary navigation">
-            {navItems.map(({ label, icon: Icon, href }) => (
-              <button key={label} onClick={() => { setActiveNav(label); if (href) window.open(href, '_blank', 'noopener,noreferrer'); else if (label === 'Discover') discoverRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }} className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition ${activeNav === label ? 'bg-white text-[#191a1e] shadow-[0_1px_3px_rgb(0_0_0/8%)]' : 'hover:bg-white/70'}`}>
+            {navItems.map(({ label, icon: Icon, href }) => href ? (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" onClick={() => setActiveNav(label)} className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition ${activeNav === label ? 'bg-white text-[#191a1e] shadow-[0_1px_3px_rgb(0_0_0/8%)]' : 'hover:bg-white/70'}`}>
+                <Icon size={16} strokeWidth={1.8} />{label}
+              </a>
+            ) : (
+              <button key={label} onClick={() => { setActiveNav(label); if (label === 'Discover') discoverRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }} className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition ${activeNav === label ? 'bg-white text-[#191a1e] shadow-[0_1px_3px_rgb(0_0_0/8%)]' : 'hover:bg-white/70'}`}>
                 <Icon size={16} strokeWidth={1.8} />{label}
               </button>
             ))}
