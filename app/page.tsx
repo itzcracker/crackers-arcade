@@ -90,6 +90,24 @@ const games = [
     link: 'https://itzcracker.github.io/HTML-web-course/',
     color: '#f5d6cb',
   },
+  {
+    title: 'CS 1.6',
+    category: 'First-person shooter',
+    eyebrow: 'New from Cracker',
+    description: 'Join the classic tactical showdown and make every shot count.',
+    image: 'https://i.ibb.co/twPYRMtp/CS1-6-GO-REMIX-V3-mp4-VLC-medi-3.png',
+    link: 'https://itzcracker.github.io/Learn-JavaScript/',
+    color: '#dce5ed',
+  },
+  {
+    title: 'Granny 3',
+    category: 'Horror',
+    eyebrow: 'New from Cracker',
+    description: 'Find your way out, keep quiet, and survive the haunted house.',
+    image: 'https://i.ibb.co/rG10cMJ8/capsule-616x353-upscaled.jpg',
+    link: 'https://itzcracker.github.io/Learn-CSS-web/',
+    color: '#e5d9d5',
+  },
 ]
 
 const discoverImages = [
