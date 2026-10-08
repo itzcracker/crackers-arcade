@@ -107,6 +107,24 @@ const games = [
     link: 'https://itzcracker.github.io/Learn-CSS-web/',
     color: '#e5d9d5',
   },
+  {
+    title: 'Plants Vs. Zombies',
+    category: 'Strategy',
+    eyebrow: 'New from Cracker',
+    description: 'Grow your garden, defend your home, and stop the zombie horde.',
+    image: 'https://i.postimg.cc/XqB0yqwJ/c1315ea32663089f14b01d2d6ad08ead42e6e4aeca41946f.jpg',
+    link: 'https://itzcracker.github.io/pvzdeploy/',
+    color: '#d9efd4',
+  },
+  {
+    title: 'Toasterball',
+    category: 'Sports',
+    eyebrow: 'New from Cracker',
+    description: 'Serve, smash, and score in a chaotic game of toaster-powered tennis.',
+    image: 'https://les-crafteurs.com/img/toasterball-page/image-cover.png',
+    link: 'https://itzcracker.github.io/learn_assembly/files/toasterball/index.html?cdn=https%3A%2F%2Fcdn.jsdelivr%2Fgh%2Fdashiellbenton%2Fports%405e78364d5bba78d6b7c43fbd890663ff621702f3%2Ftoasterball',
+    color: '#f5e2c8',
+  },
 ]
 
 const discoverImages = [
