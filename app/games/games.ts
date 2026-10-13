@@ -1,6 +1,6 @@
 export type HtmlGame = {
   title:  '',
-  image:  '',
+  image:  'images-1.jpeg',
   link:  'games/1v1-lol.html',
 }
 
