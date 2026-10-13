@@ -1,7 +1,7 @@
 export type HtmlGame = {
-  title: string
-  image: string
-  link: string
+  title:  '',
+  image:  '',
+  link:  '1v1'lol.html',
 }
 
 // Add new browser games here. Keep each logo square for a consistent grid.
