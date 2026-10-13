@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useRef, useState } from 'react'
 import {
   AppWindow,
@@ -21,7 +22,7 @@ const games = [
     title: 'Gang Beasts',
     category: 'Party brawler',
     eyebrow: 'Ready to play',
-    description: 'Wobbly physics, fierce friends, and delightful chaos.',
+    description: '',
     image: 'https://i.ibb.co/Nd3KfZsp/hero.avif',
     link: 'https://itzcracker.github.io/GangBeast-WebPort/',
     color: '#d9e6ff',
@@ -30,7 +31,7 @@ const games = [
     title: 'How To Fish',
     category: 'Adventure',
     eyebrow: 'New from Cracker',
-    description: 'Cast a line, find your rhythm, and reel in a story.',
+    description: '',
     image: 'https://i.ibb.co/mF5xGg0b/How-to-Fish-01.jpg',
     link: 'https://itzcracker.github.io/HowToFishPort/',
     color: '#d8f0e3',
@@ -39,7 +40,7 @@ const games = [
     title: 'Clustertruck',
     category: 'Action',
     eyebrow: 'New release',
-    description: 'Leap across a runaway convoy in a race against gravity.',
+    description: '',
     image: 'https://i.ibb.co/cdjD4h5/clustertruck.png',
     link: 'https://itzcracker.github.io/Clustertruck-Port/',
     color: '#ffe3c7',
@@ -48,7 +49,7 @@ const games = [
     title: 'PEAK',
     category: 'Adventure',
     eyebrow: 'New from Cracker',
-    description: 'Climb higher, move carefully, and chase the summit.',
+    description: '',
     image: 'https://i.ibb.co/zTfYgrVC/Mix-Collage-27-Jun-2025-10-57-AM-7610-1.jpg',
     link: 'https://itzcracker.github.io/Peak-Port/?cdn=https%3A%2F%2Fcdn.jsdelivr%2Fgh%2Fwasmdotrip%2FPeak-Port%40main',
     color: '#e5e0ff',
@@ -57,7 +58,7 @@ const games = [
     title: 'Grand Theft Auto: Vice City',
     category: 'Open world',
     eyebrow: 'New from Cracker',
-    description: 'Take a neon-soaked trip through the streets of Vice City.',
+    description: '',
     image: 'https://i.ibb.co/k6yj7qnn/u-https-wallpapers-com-images-hd-gta-vc-pe36dgr3m99i6c8m.jpg',
     link: 'https://itzcracker.mooo.com/games/vicecity/index.html',
     color: '#f6d6c9',
@@ -66,7 +67,7 @@ const games = [
     title: 'Grand Theft Auto III',
     category: 'Open world',
     eyebrow: 'New from Cracker',
-    description: 'Explore Liberty City and make your mark on the streets.',
+    description: '',
     image: 'https://i.ibb.co/wNX5YPxh/u-https-www-igrandtheftauto-com-content-images-xl-gta3-logo.webp',
     link: 'https://itzcracker.github.io/StudyMath3/',
     color: '#e7e2d2',
@@ -75,7 +76,7 @@ const games = [
     title: 'Minecraft (Eaglercraft)',
     category: 'Sandbox',
     eyebrow: 'New from Cracker',
-    description: 'Build, explore, and create your own blocky adventure.',
+    description: '',
     image: 'https://i.ibb.co/V0tCMGRP/u-https-dotesports-com-wp-content-uploads-2023-06-cherry-blossom-grove-in-minecra.png',
     link: 'https://petergriffiniscool.netlify.app/',
     color: '#d9eedc',
@@ -84,7 +85,7 @@ const games = [
     title: 'Cuphead',
     category: 'Run and gun',
     eyebrow: 'New from Cracker',
-    description: 'Take on fast-paced bosses in a hand-drawn cartoon adventure.',
+    description: '',
     image: 'https://i.ibb.co/RTfCCG3J/u-https-gmedia-playstation.jpg',
     link: 'https://itzcracker.github.io/HTML-web-course/',
     color: '#f5d6cb',
@@ -93,8 +94,8 @@ const games = [
     title: 'CS 1.6',
     category: 'First-person shooter',
     eyebrow: 'New from Cracker',
-    description: 'Join the classic tactical showdown and make every shot count.',
-    image: 'https://i.ibb.co/twPYRMtp/CS1-6-GO-REMIX-V3-mp4-VLC-medi-3.png',
+    description: '',
+    image: 'https://i.ibb.co/39QXMF5R/steamworkshop-webupload-previewfile-186125396-preview.jpg',
     link: 'https://itzcracker.github.io/Learn-JavaScript/',
     color: '#dce5ed',
   },
@@ -111,8 +112,8 @@ const games = [
     title: 'Plants Vs. Zombies',
     category: 'Strategy',
     eyebrow: 'New from Cracker',
-    description: 'Grow your garden, defend your home, and stop the zombie horde.',
-    image: 'https://i.postimg.cc/XqB0yqwJ/c1315ea32663089f14b01d2d6ad08ead42e6e4aeca41946f.jpg',
+    description: '',
+    image: 'https://i.ibb.co/pvMY1TZ7/pvzdddd.avif',
     link: 'https://itzcracker.github.io/pvzdeploy/',
     color: '#d9efd4',
   },
@@ -120,10 +121,64 @@ const games = [
     title: 'Toasterball',
     category: 'Sports',
     eyebrow: 'New from Cracker',
-    description: 'Serve, smash, and score in a chaotic game of toaster-powered tennis.',
-    image: 'https://les-crafteurs.com/img/toasterball-page/image-cover.png',
+    description: '',
+    image: 'https://api.imghippo.com/files/kpU6087RxA.png',
     link: 'https://itzcracker.github.io/learn_assembly/files/toasterball/index.html?cdn=https%3A%2F%2Fcdn.jsdelivr%2Fgh%2Fdashiellbenton%2Fports%405e78364d5bba78d6b7c43fbd890663ff621702f3%2Ftoasterball',
     color: '#f5e2c8',
+  },
+  {
+    title: 'The Simpsons: Hit & Run',
+    category: 'Strategy',
+    eyebrow: 'New from Cracker',
+    description: '',
+    image: 'https://i.ibb.co/cKKrR4P9/maxresdefault.jpg',
+    link: 'https://shar-wasm.cjoseph.workers.dev/?skipmovie',
+    color: '#d9efd4',
+  },
+  {
+    title: 'Roblox',
+    category: 'Strategy',
+    eyebrow: 'New from Cracker',
+    description: '',
+    image: 'https://i.ibb.co/d4ShG2ps/game-poster-roblox-4k-in10cj1sl84hm3v4.jpg',
+    link: 'https://gravity-nmq7.onrender.com/?goto=https%3A%2F%2Fnowgg.fun/apps/a/19900/b.html',
+    color: '#d9efd4',
+  },
+  {
+    title: 'bunnyhop.lol',
+    category: 'Strategy',
+    eyebrow: 'New from Cracker',
+    description: '',
+    image: 'https://i.ibb.co/Nv2khKG/about.jpg',
+    link: 'https://gravity-nmq7.onrender.com/?goto=https%3A%2F%2Fbunnyhop.lol',
+    color: '#d9efd4',
+  },
+  {
+    title: 'poxel.io',
+    category: 'Strategy',
+    eyebrow: 'New from Cracker',
+    description: '',
+    image: 'https://api.imghippo.com/files/BHIw3084gig.jpg',
+    link: 'https://gravity-nmq7.onrender.com/?goto=https%3A%2F%2Fpoxel.io',
+    color: '#d9efd4',
+  },
+  {
+    title: 'SUPERFLIGHT',
+    category: 'Strategy',
+    eyebrow: 'New from Cracker',
+    description: '',
+    image: 'https://i.ibb.co/27zt1fvM/ss-39df924f147673353e3568d98355bfb243b6460a-1920x1080.jpg',
+    link: 'https://squidward5.github.io/superflight-webport/',
+    color: '#d9efd4',
+  },
+  {
+    title: 'Hill Climb Racing',
+    category: 'Strategy',
+    eyebrow: 'New from Cracker',
+    description: '',
+    image: 'https://i.ibb.co/DdygFsf/81-R2vi81ln-L.jpg',
+    link: 'https://itzcracker.github.io/learn_assembly/files/hcr/index.html',
+    color: '#d9efd4',
   },
 ]
 
@@ -137,7 +192,7 @@ const discoverImages = [
 const navItems = [
   { label: 'Discover', icon: Compass },
   { label: 'Arcade', icon: Gamepad2 },
-  { label: 'Create', icon: Sparkles },
+  { label: 'Games (html)', icon: Sparkles, href: '/games' },
   { label: 'Play', icon: AppWindow },
   { label: 'Developer', icon: Wrench, href: 'https://github.com/itzcracker' },
   { label: 'Discord', icon: ArrowDownToLine, href: 'https://dsc.gg/gravitycom' },
@@ -180,11 +235,15 @@ export default function Page() {
             <span className="arcade-logo text-[15px] tracking-[-0.03em]">Cracker&apos;s Arcade</span>
           </div>
           <nav className="space-y-1 text-[13px] font-medium text-[#666a73]" aria-label="Primary navigation">
-            {navItems.map(({ label, icon: Icon, href }) => href ? (
+            {navItems.map(({ label, icon: Icon, href }) => href ? (href.startsWith('http') ? (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" onClick={() => setActiveNav(label)} className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition ${activeNav === label ? 'bg-white text-[#191a1e] shadow-[0_1px_3px_rgb(0_0_0/8%)]' : 'hover:bg-white/70'}`}>
                 <Icon size={16} strokeWidth={1.8} />{label}
               </a>
             ) : (
+              <Link key={label} href={href} onClick={() => setActiveNav(label)} className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition ${activeNav === label ? 'bg-white text-[#191a1e] shadow-[0_1px_3px_rgb(0_0_0/8%)]' : 'hover:bg-white/70'}`}>
+                <Icon size={16} strokeWidth={1.8} />{label}
+              </Link>
+            )) : (
               <button key={label} onClick={() => { setActiveNav(label); if (label === 'Discover') discoverRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }) }} className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition ${activeNav === label ? 'bg-white text-[#191a1e] shadow-[0_1px_3px_rgb(0_0_0/8%)]' : 'hover:bg-white/70'}`}>
                 <Icon size={16} strokeWidth={1.8} />{label}
               </button>
@@ -217,7 +276,28 @@ export default function Page() {
 
       {welcomeOpen && <div className="fixed inset-0 z-50 grid place-items-center bg-black/35 p-5 backdrop-blur-[3px]"><div className="relative w-full max-w-[440px] overflow-hidden rounded-[24px] bg-white p-8 text-center shadow-2xl sm:p-10"><button onClick={() => setWelcomeOpen(false)} aria-label="Close welcome message" className="absolute right-4 top-4 rounded-full p-2 text-[#9a9da3] hover:bg-[#f0f1f3] hover:text-black"><X size={18} /></button><p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#878c95]">Cracker&apos;s Arcade</p><h2 className="mb-3 text-[30px] font-semibold tracking-[-0.055em]">Welcome to Cracker&apos;s Arcade</h2><p className="mx-auto mb-8 max-w-[290px] text-sm leading-6 text-[#737780]">A small collection of big adventures, made for curious people.</p><button onClick={() => setWelcomeOpen(false)} className="w-full rounded-xl bg-[#1683ed] py-3 text-sm font-semibold text-white shadow-[0_5px_12px_rgb(22_131_237/25%)] transition hover:bg-[#086ed4]">Continue</button></div></div>}
       {signupOpen && <SignupModal draftUsername={draftUsername} setDraftUsername={setDraftUsername} onClose={() => setSignupOpen(false)} onSubmit={() => { if (draftUsername.trim()) { setUsername(draftUsername.trim()); setSignupOpen(false) } }} />}
-      {activeGame && <div className="fixed inset-0 z-[60] flex flex-col bg-[#111216] text-white"><div className="flex h-10 shrink-0 items-center justify-between border-b border-white/10 px-4 sm:px-6"><div className="flex items-center gap-2"><span className="text-sm font-semibold">{activeGame.title}</span></div><button onClick={() => setActiveGame(null)} className="rounded-full bg-white/10 px-3 py-1 text-xs transition hover:bg-white/20">Exit game</button></div><iframe title={activeGame.title} src={activeGame.link} className="h-[calc(100vh-2.5rem)] w-full border-0 bg-black" allow="fullscreen; autoplay; gamepad" /></div>}
+      {activeGame && (
+  <div className="fixed inset-0 z-[60] bg-[#111216] text-white">
+    <iframe
+      title={activeGame.title}
+      src={activeGame.link}
+      className="h-full w-full border-0 bg-black"
+      allow="fullscreen; autoplay; gamepad"
+    />
+    <div className="group absolute inset-x-0 top-0 z-10 h-2">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[3px] bg-white/20 transition-opacity duration-300 group-hover:opacity-0" />
+      <div className="absolute inset-x-0 top-0 flex h-10 -translate-y-full items-center justify-between border-b border-white/10 bg-[#111216]/95 px-4 backdrop-blur transition-transform duration-300 ease-out delay-300 group-hover:translate-y-0 group-hover:delay-0 sm:px-6">
+        <span className="text-sm font-semibold">{activeGame.title}</span>
+        <button
+          onClick={() => setActiveGame(null)}
+          className="rounded-full bg-white/10 px-3 py-1 text-xs transition hover:bg-white/20"
+        >
+          Exit game
+        </button>
+      </div>
+    </div>
+  </div>
+)}
     </main>
   )
 }
