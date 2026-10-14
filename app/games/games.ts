@@ -27,7 +27,6 @@ export const htmlGames: HtmlGame[] = [
   { title: "Papa's Hot Doggeria", image: '/images/papas-hot-doggeria.jpg', link: '/games/papas-hot-doggeria.html' },
   { title: "Papa's Pastaria", image: '/images/papas-pastaria.jpg', link: '/games/papas-pastaria.html' },
   { title: "Papa's Scooperia", image: '/images/papas-scooperia.jpg', link: '/games/papas-scooperia.html' },
-  { title: 'Penalty Kicks', image: '/images/penalty-kicks.jpg', link: '/games/penalty-kicks.html' },
   { title: 'Raft Wars', image: '/images/raft-wars.jpg', link: '/games/raft-wars.html' },
   { title: 'Raft Wars 2', image: '/images/raft-wars-2.jpg', link: '/games/raft-wars-2.html' },
   { title: 'Skate 3', image: '/images/skate-3.jpg', link: '/games/skate-3.html' },
