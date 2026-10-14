@@ -158,7 +158,7 @@ const games = [
     category: 'Strategy',
     eyebrow: 'New from Cracker',
     description: '',
-    image: 'https://api.imghippo.com/files/BHIw3084gig.jpg',
+    image: 'https://imgtree.co/preview/-eWGxBf_.webp',
     link: 'https://gravity-nmq7.onrender.com/?goto=https%3A%2F%2Fpoxel.io',
     color: '#d9efd4',
   },
