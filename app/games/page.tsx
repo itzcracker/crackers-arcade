@@ -8,6 +8,25 @@ import { sortedHtmlGames, type HtmlGame } from './games'
 export default function HtmlGamesPage() {
   const [activeGame, setActiveGame] = useState<HtmlGame | null>(null)
 
+  function openGameInNewTab(game: HtmlGame) {
+    const gameWindow = window.open('about:blank', '_blank')
+
+    if (!gameWindow) return
+
+    gameWindow.document.title = game.title
+    gameWindow.document.body.style.margin = '0'
+    gameWindow.document.body.style.backgroundColor = '#000'
+
+    const iframe = gameWindow.document.createElement('iframe')
+    iframe.title = game.title
+    iframe.src = game.link
+    iframe.allow = 'fullscreen; autoplay; gamepad'
+    iframe.style.width = '100vw'
+    iframe.style.height = '100vh'
+    iframe.style.border = '0'
+    gameWindow.document.body.appendChild(iframe)
+  }
+
   return (
     <main className="min-h-screen overflow-y-auto bg-[#f6f7f9] px-5 py-8 text-[#17181b] sm:px-9 lg:px-12">
       <div className="mx-auto max-w-[1120px]">
@@ -22,7 +41,10 @@ export default function HtmlGamesPage() {
         <iframe title={activeGame.title} src={activeGame.link} className="h-full w-full border-0 bg-black" allow="fullscreen; autoplay; gamepad" />
         <div className="absolute inset-x-0 top-0 flex h-12 items-center justify-between border-b border-white/10 bg-[#111216]/95 px-4 backdrop-blur sm:px-6">
           <span className="text-sm font-semibold">{activeGame.title}</span>
-          <button type="button" onClick={() => setActiveGame(null)} aria-label="Exit game" className="rounded-full bg-white/10 p-2 transition hover:bg-white/20"><X size={16} /></button>
+          <div className="flex items-center gap-2">
+            <button type="button" onClick={() => openGameInNewTab(activeGame)} className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-xs font-medium transition hover:bg-white/20"><ExternalLink size={14} /> Open in new tab</button>
+            <button type="button" onClick={() => setActiveGame(null)} aria-label="Exit game" className="rounded-full bg-white/10 p-2 transition hover:bg-white/20"><X size={16} /></button>
+          </div>
         </div>
       </div>}
     </main>
