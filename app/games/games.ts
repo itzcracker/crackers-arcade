@@ -36,7 +36,7 @@ export const htmlGames: HtmlGame[] = [
   { title: 'Bacon May Die', image: '/placeholder-logo.svg', link: '/games/bacon-may-die.html' },
   { title: "Baldi's Basics", image: '/placeholder-logo.svg', link: '/games/baldis-basics.html' },
   { title: 'Cactus McCoy', image: '/placeholder-logo.svg', link: '/games/cactus-mccoy.html' },
-  { title: 'Careatscar 2 Deluxe', image: '/placeholder-logo.svg', link: '/games/careatscar-2-deluxe.html' },
+  { title: 'Car eats car 2 Deluxe', image: '/placeholder-logo.svg', link: '/games/careatscar-2-deluxe.html' },
   { title: "Don't Escape", image: '/placeholder-logo.svg', link: '/games/dont-escape.html' },
   { title: "Don't Escape 2", image: '/placeholder-logo.svg', link: '/games/dont-escape-2.html' },
   { title: 'Duck Life', image: '/placeholder-logo.svg', link: '/games/duck-life.html' },
