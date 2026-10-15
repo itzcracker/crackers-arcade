@@ -49,7 +49,7 @@ export const htmlGames: HtmlGame[] = [
   { title: "Papa's Burgeria", image: '/images/images-37.png', link: '/games/papas-burgeria.html' },
   { title: "Papa's Sushiria", image: '/images/images-38.png', link: '/games/papas-sushiria.html' },
   { title: 'Paper.io 3D', image: '/images/images-39.png', link: '/games/paper-io-3d.html' },
-  { title: 'PvZ2 Gardendless', image: '/images/images-40.png', link: '/games/pvz2-gardenless.html' },
+  { title: 'PVZ 2 Gardendless', image: '/images/images-40.png', link: '/games/pvz2-gardenless.html' },
 ]
 
 export const sortedHtmlGames = [...htmlGames].sort((a, b) =>
