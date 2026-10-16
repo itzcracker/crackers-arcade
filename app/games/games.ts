@@ -68,7 +68,6 @@ export const htmlGames: HtmlGame[] = [
   { title: "Papa Louie 2: When Sundaes Attack", image: '/placeholder.jpg', link: '/games/papa-louie-sundae-attack.html' },
   { title: 'Papa Louie Night Hunt 2', image: '/placeholder.jpg', link: '/games/papa-louie-2.html' },
   { title: "Papa's Pancakeria", image: '/placeholder.jpg', link: '/games/papas-pancakeria.html' },
-  { title: 'Angry Birds Space (Alternate)', image: '/placeholder.jpg', link: '/games/angry-birds-space-2.html' },
   { title: 'FNAF 1', image: '/placeholder.jpg', link: '/games/fnaf-1.html' },
   { title: 'FNAF 2', image: '/placeholder.jpg', link: '/games/fnaf-2.html' },
   { title: 'FNAF 3', image: '/placeholder.jpg', link: '/games/fnaf-3.html' },
