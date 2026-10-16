@@ -64,7 +64,6 @@ export const htmlGames: HtmlGame[] = [
   { title: 'Haunt the House', image: '/placeholder.jpg', link: '/games/haunt-the-house.html' },
   { title: 'Jacksmith', image: '/placeholder.jpg', link: '/games/jacksmith.html' },
   { title: 'Karlson', image: '/placeholder.jpg', link: '/games/karlson.html' },
-  { title: 'One Piece Fighting', image: '/placeholder.jpg', link: '/games/one-piece-fighting.html' },
   { title: "Papa's Donuteria", image: '/placeholder.jpg', link: '/games/papas-donuteria.html' },
   { title: "Papa Louie 2: When Burgers Attack", image: '/placeholder.jpg', link: '/games/papa-louie-burger-attack.html' },
   { title: "Papa Louie 2: When Sundaes Attack", image: '/placeholder.jpg', link: '/games/papa-louie-sundae-attack.html' },
