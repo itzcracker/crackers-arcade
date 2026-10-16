@@ -38,7 +38,6 @@ export const htmlGames: HtmlGame[] = [
   { title: 'Cactus McCoy', image: '/images/images-26.png', link: '/games/cactus-mccoy.html' },
   { title: 'Car eats car 2 Deluxe', image: '/images/images-27.png', link: '/games/careatscar-2-deluxe.html' },
   { title: "Don't Escape", image: '/images/images-28.png', link: '/games/dont-escape.html' },
-  { title: "Don't Escape 2", image: '/images/images-29.png', link: '/games/dont-escape-2.html' },
   { title: 'Duck Life', image: '/images/images-30.png', link: '/games/duck-life.html' },
   { title: 'Duck Life 2', image: '/images/images-31.png', link: '/games/duck-life-2.html' },
   { title: 'Duck Life 3', image: '/images/images-32.png', link: '/games/duck-life-3.html' },
