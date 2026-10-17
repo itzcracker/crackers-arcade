@@ -56,7 +56,7 @@ export const htmlGames: HtmlGame[] = [
   { title: 'Bloons TD 3', image: '/images/images-50.png', link: '/games/bloons-td-3.html' },
   { title: 'Bloons TD 4', image: '/images/images-51.png', link: '/games/bloons-td-4.html' },
   { title: 'Bloons TD 5', image: '/images/images-52.png', link: '/games/bloons-td-5.html' },
-  { title: 'Bob the Robber', image: '/images/images-7.png', link: '/games/bob-the-robber.html' },
+  { title: 'Bob the Robber', image: '/images/images-60.png', link: '/games/bob-the-robber.html' },
   { title: 'Fireboy and Watergirl', image: '/images/images-53.png', link: '/games/fireboy-and-watergirl.html' },
   { title: 'Get Yoked', image: '/images/images-58.png', link: '/games/get-yoked.html' },
   { title: 'Happy Wheels', image: '/images/images-57.png', link: '/games/happy-wheels.html' },
