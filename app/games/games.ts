@@ -60,7 +60,7 @@ export const htmlGames: HtmlGame[] = [
   { title: 'Fireboy and Watergirl', image: '/images/images-53.png', link: '/games/fireboy-and-watergirl.html' },
   { title: 'Get Yoked', image: '/images/images-58.png', link: '/games/get-yoked.html' },
   { title: 'Happy Wheels', image: '/images/images-57.png', link: '/games/happy-wheels.html' },
-  { title: 'Haunt the House', image: '/images/images-56.png', link: '/games/haunt-the-house.html' },
+  { title: 'Haunt the House', image: '/images/images-59.png', link: '/games/haunt-the-house.html' },
   { title: 'Jacksmith', image: '/images/images-41.png', link: '/games/jacksmith.html' },
   { title: 'Karlson', image: '/images/images-45.png', link: '/games/karlson.html' },
   { title: "Papa's Donuteria", image: '/images/images-40.png', link: '/games/papas-donuteria.html' },
