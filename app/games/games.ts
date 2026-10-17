@@ -70,8 +70,8 @@ export const htmlGames: HtmlGame[] = [
   { title: "Papa's Pancakeria", image: '/images/images-40.png', link: '/games/papas-pancakeria.html' },
   { title: 'FNAF 1', image: '/images/images-54.png', link: '/games/fnaf-1.html' },
   { title: 'FNAF 2', image: '/images/images-55.png', link: '/games/fnaf-2.html' },
-  { title: 'FNAF 3', image: '/images/images-56.png', link: '/games/fnaf-3.html' },
-  { title: 'FNAF 4', image: '/images/images-57.png', link: '/games/fnaf-4.html' },
+  { title: 'FNAF 3', image: '/images/images-55.png', link: '/games/fnaf-3.html' },
+  { title: 'FNAF 4', image: '/images/images-56.png', link: '/games/fnaf-4.html' },
   { title: 'FNAF Pizzeria Simulator', image: '/images/images-57.png', link: '/games/fnaf-pizzeria-simulator.html' },
   { title: 'Jelly Drift', image: '/images/images-42.png', link: '/games/jelly-drift-2.html' },
   { title: 'Jet Rush', image: '/images/images-43.png', link: '/games/jet-rush.html' },
@@ -85,7 +85,7 @@ export const htmlGames: HtmlGame[] = [
   { title: 'Ragdoll Hit', image: '/placeholder.jpg', link: '/games/ragdoll-hit.html' },
   { title: 'Ragdoll.io', image: '/placeholder.jpg', link: '/games/ragdoll-io.html' },
   { title: 'Santa Run', image: '/placeholder.jpg', link: '/games/santa-run.html' },
-  { title: 'Kirby Soft and Wet', image: '/placeholder.jpg', link: '/games/soft-and-wet.html' },
+  { title: 'Kirby ~ Soft & Wet', image: '/placeholder.jpg', link: '/games/soft-and-wet.html' },
 ]
 
 export const sortedHtmlGames = [...htmlGames].sort((a, b) =>
