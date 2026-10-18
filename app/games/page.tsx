@@ -28,7 +28,7 @@ export default function HtmlGamesPage() {
   }
 
   return (
-    <main className="min-h-screen overflow-y-auto bg-[#f6f7f9] px-5 py-8 text-[#17181b] sm:px-9 lg:px-12">
+    <main className="h-screen overflow-y-auto overscroll-y-contain bg-[#f6f7f9] px-5 py-8 text-[#17181b] sm:px-9 lg:px-12">
       <div className="mx-auto max-w-[1120px]">
         <Link href="/" className="mb-10 inline-flex items-center gap-2 text-sm text-[#686c74] transition hover:text-[#17181b]"><ArrowLeft size={16} /> Back to Arcade</Link>
         <div className="mb-10 flex items-end justify-between border-b border-[#e2e4e8] pb-6">
