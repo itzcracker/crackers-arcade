@@ -1,113 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Crackers Arcade</title>
-  <style>
-    body { font-family: sans-serif; background: #111; color: #eee; margin: 0; padding: 20px; }
-    h1 { text-align: center; }
-    #q { display: block; margin: 0 auto 20px; padding: 10px; width: 90%; max-width: 400px; border-radius: 8px; border: 0; font-size: 16px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; max-width: 1000px; margin: 0 auto; }
-    a { display: block; padding: 18px; background: #222; color: #fff; text-decoration: none; border-radius: 8px; text-align: center; }
-    a:hover { background: #333; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arcade</title>
+<style>
+:root{color-scheme:light dark;--bg:#fff;--fg:#1d1d1f;--sub:#6e6e73;--line:rgba(0,0,0,.09);--blue:#0071e3;--pill:rgba(0,113,227,.1);--nav:rgba(255,255,255,.72);--inp:rgba(0,0,0,.06)}
+@media(prefers-color-scheme:dark){:root{--bg:#000;--fg:#f5f5f7;--sub:#98989d;--line:rgba(255,255,255,.12);--blue:#2997ff;--pill:rgba(41,151,255,.16);--nav:rgba(0,0,0,.7);--inp:rgba(255,255,255,.1)}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+header{position:sticky;top:0;z-index:10;background:var(--nav);-webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px);border-bottom:1px solid var(--line)}
+.bar{max-width:1100px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px}
+.logo{font-size:21px;font-weight:700;letter-spacing:-.02em}
+.logo i{font-style:normal;color:var(--blue)}
+#q{margin-left:auto;width:100%;max-width:300px;padding:9px 14px;border:0;border-radius:10px;background:var(--inp);color:var(--fg);font-size:15px;outline:none;font-family:inherit}
+#q:focus{box-shadow:0 0 0 3px var(--pill)}
+.wrap{max-width:1100px;margin:0 auto;padding:28px 24px 70px}
+.hero{position:relative;overflow:hidden;border-radius:30px;padding:44px;display:flex;align-items:center;gap:32px;color:#fff;min-height:270px;margin-bottom:44px;box-shadow:0 20px 50px -20px rgba(0,0,0,.45);animation:up .6s both}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(255,255,255,.35),transparent 55%)}
+.hero>*{position:relative}
+.ht small{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.85}
+.ht h2{font-size:42px;line-height:1.05;letter-spacing:-.03em;margin:8px 0 10px}
+.ht p{margin:0 0 22px;font-size:17px;opacity:.9}
+.hbtn{display:inline-block;background:#fff;color:#111;font-weight:700;font-size:15px;padding:11px 30px;border-radius:999px;text-decoration:none;transition:transform .15s}
+.hbtn:hover{transform:scale(1.06)}
+.ic{position:relative;flex:none;width:68px;height:68px;border-radius:22.37%;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.22),inset 0 0 0 1px rgba(255,255,255,.18)}
+.ic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,0) 55%);pointer-events:none}
+.ic span{color:#fff;font-size:30px;font-weight:700;text-shadow:0 2px 6px rgba(0,0,0,.25)}
+.ic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .ic{width:160px;height:160px}
+.hero .ic span{font-size:72px}
+h3{font-size:24px;letter-spacing:-.02em;margin:0 0 14px}
+#recent{margin-bottom:40px}
+.rail{display:flex;gap:20px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rec{width:92px;flex:none;text-decoration:none;color:inherit;text-align:center;transition:transform .15s}
+.rec:hover{transform:translateY(-3px)}
+.rec .ic{width:92px;height:92px;margin-bottom:8px}
+.rec b{display:block;font-size:12.5px;font-weight:500;line-height:1.25;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.sec{margin-bottom:34px;animation:up .6s both}
+.sec h2{font-size:22px;font-weight:700;margin:0 0 4px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));column-gap:36px}
+.row{display:flex;align-items:center;gap:16px;padding:14px 8px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;border-radius:14px;transition:background .15s,transform .12s}
+.row:hover{background:var(--inp)}
+.row:active{transform:scale(.985)}
+.rt{flex:1;min-width:0}
+.rt b{display:block;font-size:16.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rt small{color:var(--sub);font-size:13px}
+.pill{background:var(--pill);color:var(--blue);font-weight:700;font-size:13px;padding:7px 20px;border-radius:999px;transition:background .15s,color .15s}
+.row:hover .pill{background:var(--blue);color:#fff}
+.searching #hero,.searching #recent{display:none}
+#empty{display:none;color:var(--sub);text-align:center;padding:60px 0;font-size:17px}
+footer{text-align:center;color:var(--sub);font-size:13px;padding-bottom:40px}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media(max-width:640px){.hero{flex-direction:column;text-align:center;padding:30px 22px}.hero .ic{width:120px;height:120px}.ht h2{font-size:32px}.bar{padding:10px 16px}.wrap{padding:20px 16px 60px}.list{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <h1>Crackers Arcade</h1>
-  <input id="q" placeholder="Поиск игры...">
-  <div class="grid" id="grid">
-    <a href="public/games/10-bullets.html">10 Bullets</a>
-    <a href="public/games/10-minutes-till-dawn.html">10 Minutes Till Dawn</a>
-    <a href="public/games/12-minibattles.html">12 Minibattles</a>
-    <a href="public/games/1v1-lol.html">1V1 Lol</a>
-    <a href="public/games/2048.html">2048</a>
-    <a href="public/games/3-pandas.html">3 Pandas</a>
-    <a href="public/games/among-us.html">Among Us</a>
-    <a href="public/games/angry-birds-space.html">Angry Birds Space</a>
-    <a href="public/games/angry-birds-space-2.html">Angry Birds Space 2</a>
-    <a href="public/games/animal-crossing.html">Animal Crossing</a>
-    <a href="public/games/apes-vs-helium.html">Apes Vs Helium</a>
-    <a href="public/games/bacon-may-die.html">Bacon May Die</a>
-    <a href="public/games/baldis-basics.html">Baldis Basics</a>
-    <a href="public/games/basketball-random.html">Basketball Random</a>
-    <a href="public/games/bloons-td-1.html">Bloons Td 1</a>
-    <a href="public/games/bloons-td-2.html">Bloons Td 2</a>
-    <a href="public/games/bloons-td-3.html">Bloons Td 3</a>
-    <a href="public/games/bloons-td-4.html">Bloons Td 4</a>
-    <a href="public/games/bloons-td-5.html">Bloons Td 5</a>
-    <a href="public/games/blumgi-racers.html">Blumgi Racers</a>
-    <a href="public/games/bob-the-robber.html">Bob The Robber</a>
-    <a href="public/games/bob-the-robber-2.html">Bob The Robber 2</a>
-    <a href="public/games/bouncy-basketball.html">Bouncy Basketball</a>
-    <a href="public/games/cactus-mccoy.html">Cactus Mccoy</a>
-    <a href="public/games/careatscar-2-deluxe.html">Careatscar 2 Deluxe</a>
-    <a href="public/games/dont-bite-me-bro.html">Dont Bite Me Bro</a>
-    <a href="public/games/dont-escape.html">Dont Escape</a>
-    <a href="public/games/dont-escape-2.html">Dont Escape 2</a>
-    <a href="public/games/duck-life.html">Duck Life</a>
-    <a href="public/games/duck-life-2.html">Duck Life 2</a>
-    <a href="public/games/duck-life-3.html">Duck Life 3</a>
-    <a href="public/games/duck-life-4.html">Duck Life 4</a>
-    <a href="public/games/escape-road.html">Escape Road</a>
-    <a href="public/games/fireboy-and-watergirl.html">Fireboy And Watergirl</a>
-    <a href="public/games/fnaf-1.html">Fnaf 1</a>
-    <a href="public/games/fnaf-2.html">Fnaf 2</a>
-    <a href="public/games/fnaf-3.html">Fnaf 3</a>
-    <a href="public/games/fnaf-4.html">Fnaf 4</a>
-    <a href="public/games/fnaf-pizzeria-simulator.html">Fnaf Pizzeria Simulator</a>
-    <a href="public/games/gamble-with-your-friends.html">Gamble With Your Friends</a>
-    <a href="public/games/get-yoked.html">Get Yoked</a>
-    <a href="public/games/happy-wheels.html">Happy Wheels</a>
-    <a href="public/games/haunt-the-house.html">Haunt The House</a>
-    <a href="public/games/jacksmith.html">Jacksmith</a>
-    <a href="public/games/jelly-drift.html">Jelly Drift</a>
-    <a href="public/games/jelly-drift-2.html">Jelly Drift 2</a>
-    <a href="public/games/jet-rush.html">Jet Rush</a>
-    <a href="public/games/just-fall.html">Just Fall</a>
-    <a href="public/games/karlson.html">Karlson</a>
-    <a href="public/games/mario-kart-64.html">Mario Kart 64</a>
-    <a href="public/games/mario-odyssey-64.html">Mario Odyssey 64</a>
-    <a href="public/games/mortal-kombat-4.html">Mortal Kombat 4</a>
-    <a href="public/games/moto-x3m-2.html">Moto X3M 2</a>
-    <a href="public/games/moto-x3m-3.html">Moto X3M 3</a>
-    <a href="public/games/moto-x3m-m.html">Moto X3M M</a>
-    <a href="public/games/moto-x3m-spooky-land.html">Moto X3M Spooky Land</a>
-    <a href="public/games/moto-x3m-winter.html">Moto X3M Winter</a>
-    <a href="public/games/ocarina-of-time.html">Ocarina Of Time</a>
-    <a href="public/games/one-piece-fighting.html">One Piece Fighting</a>
-    <a href="public/games/only-up.html">Only Up</a>
-    <a href="public/games/papa-louie-2.html">Papa Louie 2</a>
-    <a href="public/games/papa-louie-burger-attack.html">Papa Louie Burger Attack</a>
-    <a href="public/games/papa-louie-sundae-attack.html">Papa Louie Sundae Attack</a>
-    <a href="public/games/papas-burgeria.html">Papas Burgeria</a>
-    <a href="public/games/papas-cheeseria.html">Papas Cheeseria</a>
-    <a href="public/games/papas-donuteria.html">Papas Donuteria</a>
-    <a href="public/games/papas-freezeria.html">Papas Freezeria</a>
-    <a href="public/games/papas-hot-doggeria.html">Papas Hot Doggeria</a>
-    <a href="public/games/papas-pancakeria.html">Papas Pancakeria</a>
-    <a href="public/games/papas-pastaria.html">Papas Pastaria</a>
-    <a href="public/games/papas-scooperia.html">Papas Scooperia</a>
-    <a href="public/games/papas-sushiria.html">Papas Sushiria</a>
-    <a href="public/games/paper-io-3d.html">Paper Io 3D</a>
-    <a href="public/games/penalty-kicks.html">Penalty Kicks</a>
-    <a href="public/games/pvz2-gardenless.html">Pvz2 Gardenless</a>
-    <a href="public/games/raft-wars.html">Raft Wars</a>
-    <a href="public/games/raft-wars-2.html">Raft Wars 2</a>
-    <a href="public/games/ragdoll-archers.html">Ragdoll Archers</a>
-    <a href="public/games/ragdoll-hit.html">Ragdoll Hit</a>
-    <a href="public/games/ragdoll-io.html">Ragdoll Io</a>
-    <a href="public/games/santa-run.html">Santa Run</a>
-    <a href="public/games/skate-3.html">Skate 3</a>
-    <a href="public/games/soft-and-wet.html">Soft And Wet</a>
-  </div>
-  <script>
-    document.getElementById("q").addEventListener("input", function () {
-      var v = this.value.toLowerCase();
-      document.querySelectorAll("#grid a").forEach(function (a) {
-        a.style.display = a.textContent.toLowerCase().includes(v) ? "" : "none";
-      });
-    });
-  </script>
+<header><div class="bar"><div class="logo">Arcade<i>.</i></div><input id="q" type="search" placeholder="Search 83 games" autocomplete="off"></div></header>
+<div class="wrap">
+  <div class="hero" id="hero"></div>
+  <div id="recent" hidden><h3>Recently played</h3><div class="rail" id="rail"></div></div>
+  <div id="all"></div>
+  <div id="empty">No games found</div>
+</div>
+<footer>83 games &middot; press / to search</footer>
+<script>
+var G=[{"n": "10 Bullets", "p": "public/games/10-bullets.html", "i": ""}, {"n": "10 Minutes Till Dawn", "p": "public/games/10-minutes-till-dawn.html", "i": ""}, {"n": "12 Minibattles", "p": "public/games/12-minibattles.html", "i": ""}, {"n": "1V1 Lol", "p": "public/games/1v1-lol.html", "i": ""}, {"n": "2048", "p": "public/games/2048.html", "i": ""}, {"n": "3 Pandas", "p": "public/games/3-pandas.html", "i": ""}, {"n": "Among Us", "p": "public/games/among-us.html", "i": ""}, {"n": "Angry Birds Space", "p": "public/games/angry-birds-space.html", "i": ""}, {"n": "Angry Birds Space 2", "p": "public/games/angry-birds-space-2.html", "i": ""}, {"n": "Animal Crossing", "p": "public/games/animal-crossing.html", "i": ""}, {"n": "Apes Vs Helium", "p": "public/games/apes-vs-helium.html", "i": ""}, {"n": "Bacon May Die", "p": "public/games/bacon-may-die.html", "i": ""}, {"n": "Baldis Basics", "p": "public/games/baldis-basics.html", "i": ""}, {"n": "Basketball Random", "p": "public/games/basketball-random.html", "i": ""}, {"n": "Bloons Td 1", "p": "public/games/bloons-td-1.html", "i": ""}, {"n": "Bloons Td 2", "p": "public/games/bloons-td-2.html", "i": ""}, {"n": "Bloons Td 3", "p": "public/games/bloons-td-3.html", "i": ""}, {"n": "Bloons Td 4", "p": "public/games/bloons-td-4.html", "i": ""}, {"n": "Bloons Td 5", "p": "public/games/bloons-td-5.html", "i": ""}, {"n": "Blumgi Racers", "p": "public/games/blumgi-racers.html", "i": ""}, {"n": "Bob The Robber", "p": "public/games/bob-the-robber.html", "i": ""}, {"n": "Bob The Robber 2", "p": "public/games/bob-the-robber-2.html", "i": ""}, {"n": "Bouncy Basketball", "p": "public/games/bouncy-basketball.html", "i": ""}, {"n": "Cactus Mccoy", "p": "public/games/cactus-mccoy.html", "i": ""}, {"n": "Careatscar 2 Deluxe", "p": "public/games/careatscar-2-deluxe.html", "i": ""}, {"n": "Dont Bite Me Bro", "p": "public/games/dont-bite-me-bro.html", "i": ""}, {"n": "Dont Escape", "p": "public/games/dont-escape.html", "i": ""}, {"n": "Dont Escape 2", "p": "public/games/dont-escape-2.html", "i": ""}, {"n": "Duck Life", "p": "public/games/duck-life.html", "i": ""}, {"n": "Duck Life 2", "p": "public/games/duck-life-2.html", "i": ""}, {"n": "Duck Life 3", "p": "public/games/duck-life-3.html", "i": ""}, {"n": "Duck Life 4", "p": "public/games/duck-life-4.html", "i": ""}, {"n": "Escape Road", "p": "public/games/escape-road.html", "i": ""}, {"n": "Fireboy And Watergirl", "p": "public/games/fireboy-and-watergirl.html", "i": ""}, {"n": "Fnaf 1", "p": "public/games/fnaf-1.html", "i": ""}, {"n": "Fnaf 2", "p": "public/games/fnaf-2.html", "i": ""}, {"n": "Fnaf 3", "p": "public/games/fnaf-3.html", "i": ""}, {"n": "Fnaf 4", "p": "public/games/fnaf-4.html", "i": ""}, {"n": "Fnaf Pizzeria Simulator", "p": "public/games/fnaf-pizzeria-simulator.html", "i": ""}, {"n": "Gamble With Your Friends", "p": "public/games/gamble-with-your-friends.html", "i": ""}, {"n": "Get Yoked", "p": "public/games/get-yoked.html", "i": ""}, {"n": "Happy Wheels", "p": "public/games/happy-wheels.html", "i": ""}, {"n": "Haunt The House", "p": "public/games/haunt-the-house.html", "i": ""}, {"n": "Jacksmith", "p": "public/games/jacksmith.html", "i": ""}, {"n": "Jelly Drift", "p": "public/games/jelly-drift.html", "i": ""}, {"n": "Jelly Drift 2", "p": "public/games/jelly-drift-2.html", "i": ""}, {"n": "Jet Rush", "p": "public/games/jet-rush.html", "i": ""}, {"n": "Just Fall", "p": "public/games/just-fall.html", "i": ""}, {"n": "Karlson", "p": "public/games/karlson.html", "i": ""}, {"n": "Mario Kart 64", "p": "public/games/mario-kart-64.html", "i": ""}, {"n": "Mario Odyssey 64", "p": "public/games/mario-odyssey-64.html", "i": ""}, {"n": "Mortal Kombat 4", "p": "public/games/mortal-kombat-4.html", "i": ""}, {"n": "Moto X3M 2", "p": "public/games/moto-x3m-2.html", "i": ""}, {"n": "Moto X3M 3", "p": "public/games/moto-x3m-3.html", "i": ""}, {"n": "Moto X3M M", "p": "public/games/moto-x3m-m.html", "i": ""}, {"n": "Moto X3M Spooky Land", "p": "public/games/moto-x3m-spooky-land.html", "i": ""}, {"n": "Moto X3M Winter", "p": "public/games/moto-x3m-winter.html", "i": ""}, {"n": "Ocarina Of Time", "p": "public/games/ocarina-of-time.html", "i": ""}, {"n": "One Piece Fighting", "p": "public/games/one-piece-fighting.html", "i": ""}, {"n": "Only Up", "p": "public/games/only-up.html", "i": ""}, {"n": "Papa Louie 2", "p": "public/games/papa-louie-2.html", "i": ""}, {"n": "Papa Louie Burger Attack", "p": "public/games/papa-louie-burger-attack.html", "i": ""}, {"n": "Papa Louie Sundae Attack", "p": "public/games/papa-louie-sundae-attack.html", "i": ""}, {"n": "Papas Burgeria", "p": "public/games/papas-burgeria.html", "i": ""}, {"n": "Papas Cheeseria", "p": "public/games/papas-cheeseria.html", "i": ""}, {"n": "Papas Donuteria", "p": "public/games/papas-donuteria.html", "i": ""}, {"n": "Papas Freezeria", "p": "public/games/papas-freezeria.html", "i": ""}, {"n": "Papas Hot Doggeria", "p": "public/games/papas-hot-doggeria.html", "i": ""}, {"n": "Papas Pancakeria", "p": "public/games/papas-pancakeria.html", "i": ""}, {"n": "Papas Pastaria", "p": "public/games/papas-pastaria.html", "i": ""}, {"n": "Papas Scooperia", "p": "public/games/papas-scooperia.html", "i": ""}, {"n": "Papas Sushiria", "p": "public/games/papas-sushiria.html", "i": ""}, {"n": "Paper Io 3D", "p": "public/games/paper-io-3d.html", "i": ""}, {"n": "Penalty Kicks", "p": "public/games/penalty-kicks.html", "i": ""}, {"n": "Pvz2 Gardenless", "p": "public/games/pvz2-gardenless.html", "i": ""}, {"n": "Raft Wars", "p": "public/games/raft-wars.html", "i": ""}, {"n": "Raft Wars 2", "p": "public/games/raft-wars-2.html", "i": ""}, {"n": "Ragdoll Archers", "p": "public/games/ragdoll-archers.html", "i": ""}, {"n": "Ragdoll Hit", "p": "public/games/ragdoll-hit.html", "i": ""}, {"n": "Ragdoll Io", "p": "public/games/ragdoll-io.html", "i": ""}, {"n": "Santa Run", "p": "public/games/santa-run.html", "i": ""}, {"n": "Skate 3", "p": "public/games/skate-3.html", "i": ""}, {"n": "Soft And Wet", "p": "public/games/soft-and-wet.html", "i": ""}];
+var $=function(s){return document.querySelector(s)};
+function hash(s){var h=7;for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;return h}
+function grad(n){var h=hash(n)%360;return 'linear-gradient(150deg,hsl('+h+',85%,64%),hsl('+((h+45)%360)+',80%,46%))'}
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function icon(g){var d=el('div','ic');d.style.background=grad(g.n);d.appendChild(el('span','',g.n.charAt(0).toUpperCase()));if(g.i){var im=new Image();im.alt='';im.loading='lazy';im.onerror=function(){im.remove()};im.src=g.i;d.appendChild(im)}return d}
+function rec(){try{return JSON.parse(localStorage.getItem('arc_recent')||'[]')}catch(e){return[]}}
+function push(n){try{var r=rec().filter(function(x){return x!==n});r.unshift(n);localStorage.setItem('arc_recent',JSON.stringify(r.slice(0,12)))}catch(e){}}
+
+if(G.length){
+  var g=G[hash(new Date().toISOString().slice(0,10))%G.length],hero=$('#hero');
+  hero.style.background=grad(g.n);
+  hero.appendChild(icon(g));
+  var ht=el('div','ht');
+  ht.appendChild(el('small','','GAME OF THE DAY'));
+  ht.appendChild(el('h2','',g.n));
+  ht.appendChild(el('p','','Open it and play right in your browser'));
+  var hb=el('a','hbtn','PLAY');hb.href=g.p;hb.dataset.n=g.n;ht.appendChild(hb);
+  hero.appendChild(ht);
+}else{$('#hero').style.display='none'}
+
+var rc=rec().map(function(n){return G.find(function(x){return x.n===n})}).filter(Boolean);
+if(rc.length){
+  $('#recent').hidden=false;
+  rc.forEach(function(x){var a=el('a','rec');a.href=x.p;a.dataset.n=x.n;a.appendChild(icon(x));a.appendChild(el('b','',x.n));$('#rail').appendChild(a)});
+}
+
+var by={};
+G.forEach(function(x){var l=x.n.charAt(0).toUpperCase();if(!/[A-ZА-ЯЁ]/.test(l))l='#';(by[l]=by[l]||[]).push(x)});
+Object.keys(by).sort().forEach(function(l){
+  var s=el('section','sec');s.appendChild(el('h2','',l));
+  var ul=el('div','list');
+  by[l].forEach(function(x){
+    var a=el('a','row');a.href=x.p;a.dataset.n=x.n;a.dataset.s=x.n.toLowerCase();
+    a.appendChild(icon(x));
+    var t=el('div','rt');t.appendChild(el('b','',x.n));t.appendChild(el('small','','Game'));
+    a.appendChild(t);a.appendChild(el('span','pill','PLAY'));
+    ul.appendChild(a);
+  });
+  s.appendChild(ul);$('#all').appendChild(s);
+});
+
+document.addEventListener('click',function(e){var a=e.target.closest('a[data-n]');if(a)push(a.dataset.n)});
+
+$('#q').addEventListener('input',function(){
+  var v=this.value.toLowerCase().trim(),any=false;
+  document.body.classList.toggle('searching',!!v);
+  document.querySelectorAll('.sec').forEach(function(s){
+    var n=0;
+    s.querySelectorAll('.row').forEach(function(r){var ok=r.dataset.s.indexOf(v)>-1;r.style.display=ok?'':'none';if(ok)n++});
+    s.style.display=n?'':'none';if(n)any=true;
+  });
+  $('#empty').style.display=any?'none':'block';
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='/'&&document.activeElement!==$('#q')){e.preventDefault();$('#q').focus()}
+});
+</script>
 </body>
 </html>
